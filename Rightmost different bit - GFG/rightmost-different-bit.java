@@ -41,16 +41,15 @@ class Solution
     {
             
         // Your code here
-        if(m==n) return -1;
-        int xor = m ^ n ;
-        xor = xor & ~(xor-1);
-        int count = 0;
-        while(xor>=1)
-        {
-            xor = xor>>1;
-            count++;
+       if(m==n)
+            return -1;
+        int x=m^n;
+        int pos=1;
+        while((x&1)!=1){
+            x=x>>1;
+            pos++;
         }
-        return count;   
+        return pos;
     }
     
 }
