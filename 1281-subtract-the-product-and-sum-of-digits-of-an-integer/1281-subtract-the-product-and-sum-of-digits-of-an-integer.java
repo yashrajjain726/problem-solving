@@ -14,9 +14,7 @@ class Solution {
         
         if(n==0)
             return 0;
-        int sum = 0;
-        sum += n%10;
-        return sum + sumOfNumber(n/10);
+        return n%10 + sumOfNumber(n/10);
     }
     public int productOfNumber(int n)
     { 
