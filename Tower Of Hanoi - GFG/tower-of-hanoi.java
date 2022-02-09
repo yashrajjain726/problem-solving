@@ -48,7 +48,7 @@ class Hanoi {
             System.out.println("move disk 1 from rod "+a+" to rod "+b);
             return;
         }
-        towerOfHanoi(n-1,a,c,b);
+         towerOfHanoi(n-1, a, c, b);
         System.out.println("move disk "+n+" from rod "+a+" to rod "+b);
         towerOfHanoi(n-1,c,b,a);
     }
