@@ -10,8 +10,6 @@ class Solution {
        list.add(new ArrayList<>(innerList));
         for(int i=ind;i<arr.length;i++)
         {
-            if((i!=ind)&&(arr[i]==arr[i-1]))
-                continue;
             innerList.add(arr[i]);
             generateSubset(list,innerList,arr,i+1);
             innerList.remove(innerList.size()-1);
