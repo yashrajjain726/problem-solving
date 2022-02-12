@@ -10,6 +10,7 @@ class Solution {
         if(innerList.size()==nums.length)
         {
             list.add(new ArrayList<>(innerList));
+            return;
         }
         else
         {
