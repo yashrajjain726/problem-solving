@@ -31,48 +31,42 @@ class GFG {
 class Solve {
     int[] findTwoElement(int arr[], int n) {
         // code here
-        int ans[] = new int[2];
         int xor = 0;
+        for(int i=0;i<n;i++)
+            xor ^= arr[i];
+        for(int i=1;i<=n;i++)
+            xor ^= i;
+        int lastDigit = xor & ~(xor-1);
         int res1 = 0;
         int res2 = 0;
+        int ans[] = new int[2];
         for(int i=0;i<n;i++)
         {
-            xor ^= arr[i];
-        }
-        
-        for(int i=1;i<=n;i++)
-        {
-            xor ^= i;
-        }
-        int rightMostBit = xor & -xor;
-        for(int i=0;i<n;i++)
-        {
-            if((arr[i]&rightMostBit)==0)
-                res1 ^= arr[i];
+            if((arr[i]&lastDigit)!=0)
+                    res1 ^= arr[i];
             else
-                res2 ^= arr[i];
+                    res2 ^= arr[i];
         }
         for(int i=1;i<=n;i++)
         {
-            if((i&rightMostBit)==0)
-                res1 ^= i;
+            if((i&lastDigit)!=0)
+                    res1 ^= i;
             else
-                res2 ^= i;
+                    res2 ^= i;
         }
         for(int i=0;i<n;i++)
         {
-           if(arr[i]==res1)
-           {
-               ans[0] = res1;
-               ans[1] = res2;
-           }
-           else if(arr[i]==res2)
-           {
-               ans[0] = res2;
-               ans[1] = res1;
-           }
+            if(arr[i]==res1)
+            {
+                ans[0] = res1;
+                ans[1] = res2;
+            }
+            else if(arr[i]==res2)
+            {
+                ans[0] = res2;
+                ans[1] = res1;
+            }
         }
         return ans;
-        
     }
 }
