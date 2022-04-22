@@ -1,22 +1,21 @@
 class MyHashMap {
-    HashMap<Integer,Integer> map;
+    private static final int MAX_SIZE = (int) 1e6 +1;
+    int arr[];
     public MyHashMap() {
-        map = new HashMap<>();
+        arr = new int[MAX_SIZE];
+        Arrays.fill(arr,-1);
     }
     
     public void put(int key, int value) {
-        map.put(key,value);
+        arr[key] = value;
     }
     
     public int get(int key) {
-        if (map.containsKey(key))
-            return map.get(key);
-        return -1;
+        return arr[key];
     }
     
     public void remove(int key) {
-        if(map.containsKey(key))
-            map.remove(key);
+        arr[key] = -1;
     }
 }
 
